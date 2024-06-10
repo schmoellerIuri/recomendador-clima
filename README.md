@@ -102,13 +102,6 @@ A aplicação estará disponível em `http://localhost:5173`.
 5. Adicione cidades ao itinerário clicando no botão de adição.
 6. Gere o itinerário e faça o download em PDF.
 
-
-## Licença
-
-Este projeto está licenciado sob a MIT License. Para mais informações, veja o arquivo [LICENSE](LICENSE).
-
----
-
 Para mais informações, dúvidas ou contribuições, sinta-se à vontade para abrir uma issue ou enviar um pull request no repositório do projeto.
 
 **Desenvolvido por [Seu Nome]**
