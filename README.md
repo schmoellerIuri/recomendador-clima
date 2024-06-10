@@ -9,7 +9,6 @@ CityWeather é uma aplicação web que permite aos usuários pesquisar e visuali
 - [Configuração do Backend](#configuração-do-backend)
 - [Configuração do Frontend](#configuração-do-frontend)
 - [Uso](#uso)
-- [Licença](#licença)
 
 ## Funcionalidades
 
