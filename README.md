@@ -65,7 +65,7 @@ Para configurar e executar o backend, siga os passos abaixo:
     ```
 3. **Inicie o Servidor**:
     ```bash
-    npm start
+    node server.js
     ```
 
 O servidor estará rodando em `http://localhost:443`.
@@ -104,6 +104,6 @@ A aplicação estará disponível em `http://localhost:5173`.
 
 Para mais informações, dúvidas ou contribuições, sinta-se à vontade para abrir uma issue ou enviar um pull request no repositório do projeto.
 
-**Desenvolvido por [Seu Nome]**
+**Desenvolvido por Iuri Schmoeller**
 
 **2024**
