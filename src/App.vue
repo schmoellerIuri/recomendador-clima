@@ -6,6 +6,7 @@ import { marked } from 'marked';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import htmlToPdfmake from 'html-to-pdfmake';
+import { Loader } from '@googlemaps/js-api-loader';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -27,13 +28,22 @@ const outputItinerary = computed(() => marked(itinerary.value))
 const loadingItinerary = ref(false);
 
 let circle = null;
+let map = null;
 
-onMounted(() => {
-  if (mapElement.value) {
-    const map = new google.maps.Map(mapElement.value, {
+const loader = new Loader({
+  apiKey: "AIzaSyC_oxL80PhD6P1i5Eiu1tNB6qsE4GokS5M",
+  version: "weekly"
+});
+
+
+onMounted(async () => {
+
+  loader.load().then(async () => {
+    const { Map } = await google.maps.importLibrary("maps");
+
+    map = new Map(mapElement.value, {
       center: { lat: -24.7199, lng: -53.7433 },
-      zoom: 4,
-      mapId: 'DEMO_MAP_ID'
+      zoom: 5,
     });
 
     map.addListener('click', (e) => {
@@ -57,7 +67,8 @@ onMounted(() => {
         circle.setCenter(marker.value.getPosition());
       }
     });
-  }
+  });
+
 });
 
 watch(radius, (value) => {

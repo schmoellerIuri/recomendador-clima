@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.6",
     "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
     "html-to-pdfmake": "^2.5.10",
     "jspdf": "^2.5.1",
     "markdown-it": "^14.1.0",
