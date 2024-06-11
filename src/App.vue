@@ -1,3 +1,33 @@
+<template>
+  <div class="screen">
+    <div class="header">
+      <span class="title">CityWeather</span>
+    </div>
+    <div class="container">
+      <div class="map-container">
+        <MapElement ref="mapComponentRef" @positionChanged="updatePosition" />
+        <div class="sidebar">
+          <FormCity ref="formCityComponentRef" @startedSearch="startSearch"
+            @finishedSearch="{ { CityListComponentRef.setLoading(false); } }"
+            @receivedData="updateAllData" @resetData="resetAllData" @radiusChanged="updateRadius" />
+        </div>
+      </div>
+      <div class="city-list-container">
+        <CityList ref="CityListComponentRef" title="Cidades Encontradas" :resultList="true"
+          @add-clicked="addCityToItinerary"
+          @search="() => { formCityComponentRef.searchWeather(CityListComponentRef.getNextPage()) }"
+          @list-dblclick="openCityModal" />
+        <CityList ref="ItineraryListComponentRef" title="Cidades no itinerário" :resultList="false" />
+        <Itinerary ref="ItineraryRef"
+          @startedGetItinerary="() => { formCityComponentRef.setLoadingItinerary(true) }"
+          @finishedGetItinerary="() => { formCityComponentRef.setLoadingItinerary(false) }"
+          @getItineraryRequest="triggerGetItinerary" />
+      </div>
+    </div>
+    <Modal :isOpen="openModal" :city="selectedCity" @close="closeCityModal" />
+  </div>
+</template>
+
 <script setup>
 import { ref, onMounted } from 'vue'
 import Modal from './Modal.vue';
@@ -61,37 +91,6 @@ const triggerGetItinerary = () => {
 };
 
 </script>
-
-<template>
-  <div class="screen">
-    <div class="header">
-      <span class="title">CityWeather</span>
-    </div>
-    <div class="container">
-      <div class="map-container">
-        <MapElement ref="mapComponentRef" @positionChanged="updatePosition" />
-        <div class="sidebar">
-          <FormCity ref="formCityComponentRef" @startedSearch="startSearch"
-            @finishedSearch="{ { CityListComponentRef.setLoading(false); } }"
-            @receivedData="updateAllData" @resetData="resetAllData" @radiusChanged="updateRadius" />
-        </div>
-      </div>
-      <div class="city-list-container">
-        <CityList ref="CityListComponentRef" title="Cidades Encontradas" :resultList="true"
-          @add-clicked="addCityToItinerary"
-          @search="() => { formCityComponentRef.searchWeather(CityListComponentRef.getNextPage()) }"
-          @list-dblclick="openCityModal" />
-        <CityList ref="ItineraryListComponentRef" title="Cidades no itinerário" :resultList="false" />
-        <Itinerary ref="ItineraryRef"
-          @startedGetItinerary="() => { formCityComponentRef.setLoadingItinerary(true) }"
-          @finishedGetItinerary="() => { formCityComponentRef.setLoadingItinerary(false) }"
-          @getItineraryRequest="triggerGetItinerary" />
-      </div>
-    </div>
-    <Modal :isOpen="openModal" :city="selectedCity" @close="closeCityModal" />
-  </div>
-</template>
-
 
 <style scoped>
 .screen {
