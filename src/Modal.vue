@@ -3,8 +3,7 @@
     <div v-if="isOpen" class="modal">
         <div class="modal-content">
             <span class="close" @click="closeModal">&times;</span>
-            <h2>{{ city.nome }}, {{ city.estado }}</h2>
-            <div class="city-distance">Distância: {{ city.distancia }} km</div>
+            <h2>{{ city.nome }}</h2>
             <div class="weather-forecast-container">
                 <div class="weather-list-header">
                     <h2>Previsão do tempo (próx. 5 dias)</h2>

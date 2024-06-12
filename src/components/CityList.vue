@@ -8,8 +8,7 @@
                 @dblclick="() => { if (resultList) emit('list-dblclick', city) }"
                 title="Duplo clique para ver previsão do tempo">
                 <div class="city-info">
-                    <div class="city-name">{{ city.nome }}, {{ city.estado }}</div>
-                    <div class="city-distance">Distância:{{ city.distancia }} km</div>
+                    <div class="city-name">{{ city.nome }}</div>
                     <div class="city-weather">
                         <img :src="city.previsaoDoTempo[0].day.condition.icon"
                             :alt="city.previsaoDoTempo[0].day.condition.text" />
@@ -26,9 +25,6 @@
                         <img src="/src/assets/delete_icon.svg" alt="Remover cidade do itinerário" />
                     </button>
                 </div>
-            </li>
-            <li v-if="resultList && metadata && metadata.nextPage < metadata.totalCount" class="list-bottom">
-                <button @click="emit('search', metadata.nextPage)" style="width: 120px;">Carregar mais</button>
             </li>
         </ul>
         <div v-else class="loading-spinner">{{ loadingString }}</div>
@@ -67,9 +63,7 @@ const resetCities = () => {
 };
 
 const updateCities = (response) => {
-    metadata.totalCount = response.metadata.totalCount;
-    metadata.nextPage = response.metadata.nextPage;
-    cities.value = cities.value.concat(response.cidades);
+    cities.value = cities.value.concat(response);
 };
 
 const loadingStringAnimate = async () => {

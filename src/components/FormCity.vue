@@ -81,16 +81,15 @@ const searchWeather = async (offset = 0) => {
     try {
         const response = await axios.get('https://localhost:443/cidades', {
             params: {
-                lat: lat > 0 ? lat.toString() : lat.toString(),
-                lon: lon > 0 ? '+' + lon.toString() : lon.toString(),
+                lat: lat,
+                lon: lon,
                 raio_busca: radius.value,
                 max_temp: maxTemp.value,
                 min_temp: minTemp.value,
-                offset: offset
             }
         });
 
-        if (response.data.cidades.length === 0) {
+        if (response.data.length === 0) {
             alert('Nenhuma cidade encontrada');
         }
 
