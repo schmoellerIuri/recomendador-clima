@@ -5,9 +5,9 @@
     </div>
     <div class="container">
       <div class="map-container">
-        <MapElement ref="mapComponentRef" @positionChanged="updatePosition" />
+        <MapElement ref="MapComponentRef" @positionChanged="updatePosition" />
         <div class="sidebar">
-          <FormCity ref="formCityComponentRef" @startedSearch="startSearch"
+          <FormCity ref="FormCityComponentRef" @startedSearch="startSearch"
             @finishedSearch="{ { CityListComponentRef.setLoading(false); } }"
             @receivedData="updateAllData" @resetData="resetAllData" @radiusChanged="updateRadius" />
         </div>
@@ -15,12 +15,12 @@
       <div class="city-list-container">
         <CityList ref="CityListComponentRef" title="Cidades Encontradas" :resultList="true"
           @add-clicked="addCityToItinerary"
-          @search="() => { formCityComponentRef.searchWeather(CityListComponentRef.getNextPage()) }"
+          @search="() => { FormCityComponentRef.searchWeather(CityListComponentRef.getNextPage()) }"
           @list-dblclick="openCityModal" />
         <CityList ref="ItineraryListComponentRef" title="Cidades no itinerário" :resultList="false" />
         <Itinerary ref="ItineraryRef"
-          @startedGetItinerary="() => { formCityComponentRef.setLoadingItinerary(true) }"
-          @finishedGetItinerary="() => { formCityComponentRef.setLoadingItinerary(false) }"
+          @startedGetItinerary="() => { FormCityComponentRef.setLoadingItinerary(true) }"
+          @finishedGetItinerary="() => { FormCityComponentRef.setLoadingItinerary(false) }"
           @getItineraryRequest="triggerGetItinerary" />
       </div>
     </div>
@@ -36,8 +36,8 @@ import FormCity from './components/FormCity.vue'
 import CityList from './components/CityList.vue'
 import Itinerary from './components/Itinerary.vue'
 
-const mapComponentRef = ref(null);
-const formCityComponentRef = ref(null);
+const MapComponentRef = ref(null);
+const FormCityComponentRef = ref(null);
 const CityListComponentRef = ref(null);
 const ItineraryListComponentRef = ref(null);
 const ItineraryRef = ref(null);
@@ -49,11 +49,11 @@ onMounted(async () => {
 });
 
 const updateRadius = (value) => {
-  mapComponentRef.value.updateRadius(value);
+  MapComponentRef.value.updateRadius(value);
 };
 
 const updatePosition = (position) => {
-  formCityComponentRef.value.updatePosition(position);
+  FormCityComponentRef.value.updatePosition(position);
 };
 
 const resetAllData = () => {
@@ -117,7 +117,6 @@ const triggerGetItinerary = () => {
   align-items: center;
   flex: 1;
   width: 100%;
-  /* Garantir que a barra tenha largura total */
 }
 
 .title {

@@ -5,7 +5,7 @@
 
 <script setup>
 
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted} from 'vue';
 import { Loader } from '@googlemaps/js-api-loader';
 
 const emit = defineEmits(['positionChanged']);
@@ -19,7 +19,7 @@ let circle = null;
 let map = null;
 
 const loader = new Loader({
-    apiKey: "AIzaSyC_oxL80PhD6P1i5Eiu1tNB6qsE4GokS5M",
+    apiKey: "AIzaSyBOtpGPnBrKFU7cIFf6L8DREcH8M7XC0hY",
     version: "weekly"
 });
 
