@@ -79,7 +79,7 @@ const searchWeather = async (offset = 0) => {
     emit('startedSearch');
 
     try {
-        const response = await axios.get('https://localhost:443/cidades', {
+        const response = await axios.get('https://localhost:5000/cidades', {
             params: {
                 lat: lat > 0 ? lat.toString() : lat.toString(),
                 lon: lon > 0 ? '+' + lon.toString() : lon.toString(),

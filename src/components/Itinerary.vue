@@ -3,16 +3,19 @@
         <div class="list-header">
             <h2>Roteiro de viagem</h2>
         </div>
-        <div v-if="!loadingItinerary" class="itinerary-content" v-html="outputItinerary"></div>
-        <div v-else class="loading-spinner" style="height: 400px; border-bottom: 1px solid #ddd;">{{ loadingString }}
-        </div>
+        <div class="itinerary-content" v-html="outputItinerary"></div>
         <div class="itinerary-bottom">
+          <div class="loading-container">
+            <h2 v-if="loadingItinerary">{{ loadingString }}</h2>
+          </div>
+          <div class="buttons">
             <button style="width: 40px;" @click="downloadPDF()">
                 <img src="/src/assets/pdf_icon.svg" alt="Baixar como pdf">
             </button>
             <button style="width: 40px;" @click="$emit('getItineraryRequest')"><img src="/src/assets/search.svg"
                     alt="Gerar itinerário">
             </button>
+          </div>
         </div>
     </div>
 </template>
@@ -67,10 +70,32 @@ const getItinerary = async (itineraryCities) => {
 
   try {
     loadingStringAnimate();
-    const response = await axios.post('https://localhost:443/recomendacao', {
-      cidades: itineraryCities
+    const response = await fetch('https://localhost:5000/recomendacao', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ cidades: itineraryCities })
     });
-    itinerary.value = response.data;
+
+    if (!response.ok) {
+      alert('Erro na resposta do servidor');
+    }
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder('utf-8');
+    let itineraryText = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      itineraryText += decoder.decode(value, { stream: true });
+      itinerary.value = itineraryText;
+    }
+
+    itineraryText += decoder.decode();
+    itinerary.value = itineraryText;
+
   } catch (error) {
     alert(error.message);
     console.log(error);
@@ -154,12 +179,24 @@ button:hover {
 
 .itinerary-bottom {
   display: flex;
-  justify-content: right;
+  width: 100%;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 5px;
-  width: auto;
-  height: 50px;
+  height: 100%;
+  width: 80%;
+}
+
+.buttons {
+  display: flex;
   gap: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 20%;
+  height: 80%;
 }
 
 .itinerary {
