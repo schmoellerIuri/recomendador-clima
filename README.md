@@ -27,7 +27,7 @@ A aplicação é dividida em duas partes principais:
 
 - **Vue.js**: Framework JavaScript utilizado para construir a interface de usuário.
 - **Axios**: Biblioteca para fazer requisições HTTP ao backend.
-- **pdfMake**: Biblioteca para gerar arquivos PDF a partir do conteúdo HTML.
+- **vue3-pdfmake**: Biblioteca para gerar arquivos PDF a partir do conteúdo HTML.
 - **html-to-pdfmake**: Utilizado para converter HTML para o formato utilizado pelo pdfMake.
 
 ### Backend
@@ -41,7 +41,7 @@ A aplicação é dividida em duas partes principais:
 
 - Vue.js
 - Axios
-- pdfMake
+- vue3-pdfmake
 - html-to-pdfmake
 - marked
 
