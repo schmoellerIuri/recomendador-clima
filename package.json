@@ -13,13 +13,10 @@
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
     "html-to-pdfmake": "^2.5.10",
-    "jspdf": "^2.5.1",
-    "markdown-it": "^14.1.0",
     "marked": "^12.0.2",
-    "pdf-lib": "^1.17.1",
-    "pdfmake": "^0.2.10",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue3-pdfmake": "^2.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

@@ -24,12 +24,12 @@
 
 import { ref, computed } from 'vue';
 import { marked } from 'marked';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { usePDF } from 'vue3-pdfmake';
 import htmlToPdfmake from 'html-to-pdfmake';
-import axios from 'axios';
 
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+const pdfmake = usePDF({
+  autoInstallVFS: true
+})
 
 const emit = defineEmits(['startedGetItinerary', 'finishedGetItinerary', 'getItineraryRequest']);
 
@@ -135,7 +135,7 @@ const downloadPDF = async () => {
     }
   };
 
-  pdfMake.createPdf(documentDefinition).download('itinerario.pdf');
+  pdfmake.createPdf(documentDefinition).download('itinerario.pdf');
 };
 
 defineExpose({
