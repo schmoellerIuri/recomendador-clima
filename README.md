@@ -75,7 +75,7 @@ Para configurar e executar o frontend, siga os passos abaixo:
 
 1. **Clone o Repositório do Frontend**:
     ```bash
-    git clone https://github.com/seu-usuario/recomendador-clima.git
+    git clone https://github.com/schmoellerIuri/recomendador-clima.git
     ```
 2. **Instale as Dependências**:
     ```bash
