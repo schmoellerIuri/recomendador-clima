@@ -2,11 +2,14 @@
 
 CityWeather é uma aplicação web que permite aos usuários pesquisar e visualizar previsões meteorológicas de diversas cidades, adicioná-las a um itinerário e gerar um PDF com o roteiro de viagem. Esta aplicação utiliza uma combinação de Vue.js para o frontend e uma API backend para obter dados das cidades.
 
+## Versão em produção
+
+[](https://city-weather-v1.azurewebsites.net)
+
 ## Índice
 - [Funcionalidades](#funcionalidades)
 - [Arquitetura](#arquitetura)
 - [Dependências](#dependências)
-- [Configuração do Backend](#configuração-do-backend)
 - [Configuração do Frontend](#configuração-do-frontend)
 - [Uso](#uso)
 
@@ -48,26 +51,6 @@ A aplicação é dividida em duas partes principais:
 ### Backend
 
 Para detalhes sobre o backend, consulte o repositório: [RecomendadorDeCidadesAPI](https://github.com/schmoellerIuri/RecomendadorDeCidadesAPI).
-
-## Configuração do Backend
-
-Para configurar e executar o backend, siga os passos abaixo:
-
-1. **Clone o Repositório**:
-    ```bash
-    git clone https://github.com/schmoellerIuri/RecomendadorDeCidadesAPI.git
-    ```
-2. **Instale as Dependências**:
-    ```bash
-    cd RecomendadorDeCidadesAPI
-    npm install
-    ```
-3. **Inicie o Servidor**:
-    ```bash
-    node server.js
-    ```
-
-O servidor estará rodando em `http://localhost:5000`.
 
 ## Configuração do Frontend
 
