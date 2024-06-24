@@ -10,7 +10,7 @@ CityWeather é uma aplicação web que permite aos usuários pesquisar e visuali
 - [Funcionalidades](#funcionalidades)
 - [Arquitetura](#arquitetura)
 - [Dependências](#dependências)
-- [Configuração do Frontend](#configuração-do-frontend)
+- [Configuração do Frontend Local](#configuração-do-frontend)
 - [Uso](#uso)
 
 ## Funcionalidades
@@ -52,7 +52,7 @@ A aplicação é dividida em duas partes principais:
 
 Para detalhes sobre o backend, consulte o repositório: [RecomendadorDeCidadesAPI](https://github.com/schmoellerIuri/RecomendadorDeCidadesAPI).
 
-## Configuração do Frontend
+## Configuração do Frontend Local
 
 Para configurar e executar o frontend, siga os passos abaixo:
 
