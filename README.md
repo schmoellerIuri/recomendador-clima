@@ -84,7 +84,7 @@ Para configurar e executar o frontend, siga os passos abaixo:
     ```
 3. **Configuração do Google Maps**:
    - Obtenha uma chave de API do Google Maps.
-   - Substitua `DEMO_MAP_ID` no código pelo seu Map ID obtido no Google Cloud Platform.
+   - Substitua a API key no código pelo seu Map ID obtido no Google Cloud Platform (a chave do código é restrita).
 4. **Inicie o Servidor de Desenvolvimento**:
     ```bash
     npm run dev
