@@ -79,7 +79,7 @@ const searchWeather = async (offset = 0) => {
     emit('startedSearch');
 
     try {
-        const response = await axios.get('http://localhost:5000/cidades', {
+        const response = await axios.get('http://localhost:5050/cidades', {
             params: {
                 lat: lat > 0 ? lat.toString() : lat.toString(),
                 lon: lon > 0 ? '+' + lon.toString() : lon.toString(),
@@ -96,8 +96,11 @@ const searchWeather = async (offset = 0) => {
 
         emit('receivedData', response.data);
     } catch (error) {
-        alert(error.message);
-        console.log(error);
+        if (error.response.data) 
+            alert(error.response.data);       
+        else
+            alert(error.message);
+
     } finally {
         emit('finishedSearch');
         loading.value = false;

@@ -70,7 +70,7 @@ const getItinerary = async (itineraryCities) => {
 
   try {
     loadingStringAnimate();
-    const response = await fetch('http://localhost:5000/recomendacao', {
+    const response = await fetch('http://localhost:5050/recomendacao', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -97,7 +97,10 @@ const getItinerary = async (itineraryCities) => {
     itinerary.value = itineraryText;
 
   } catch (error) {
-    alert(error.message);
+    if (error.response.data)
+      alert(error.response.data);
+    else
+      alert(error.message);
     console.log(error);
   }
   finally {
