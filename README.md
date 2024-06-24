@@ -67,7 +67,7 @@ Para configurar e executar o backend, siga os passos abaixo:
     node server.js
     ```
 
-O servidor estará rodando em `http://localhost:443`.
+O servidor estará rodando em `http://localhost:5000`.
 
 ## Configuração do Frontend
 
@@ -75,7 +75,7 @@ Para configurar e executar o frontend, siga os passos abaixo:
 
 1. **Clone o Repositório do Frontend**:
     ```bash
-    git clone https://github.com/seu-usuario/recomendador-clima.git
+    git clone https://github.com/schmoellerIuri/recomendador-clima.git
     ```
 2. **Instale as Dependências**:
     ```bash
@@ -84,7 +84,7 @@ Para configurar e executar o frontend, siga os passos abaixo:
     ```
 3. **Configuração do Google Maps**:
    - Obtenha uma chave de API do Google Maps.
-   - Substitua `DEMO_MAP_ID` no código pelo seu Map ID obtido no Google Cloud Platform.
+   - Substitua a API key no código pelo seu Map ID obtido no Google Cloud Platform (a chave do código é restrita).
 4. **Inicie o Servidor de Desenvolvimento**:
     ```bash
     npm run dev
