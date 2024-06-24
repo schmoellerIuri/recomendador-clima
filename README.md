@@ -67,7 +67,7 @@ Para configurar e executar o backend, siga os passos abaixo:
     node server.js
     ```
 
-O servidor estará rodando em `https://localhost:5000`.
+O servidor estará rodando em `http://localhost:5000`.
 
 ## Configuração do Frontend
 
