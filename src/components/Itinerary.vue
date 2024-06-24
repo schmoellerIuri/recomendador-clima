@@ -70,10 +70,7 @@ const getItinerary = async (itineraryCities) => {
 
   try {
     loadingStringAnimate();
-    const response = await fetch('http://localhost:5050/recomendacao', {
-=======
     const response = await fetch('https://city-weather-backend.azurewebsites.net/recomendacao', {
->>>>>>> 7b9be3c3bb9aaf1b668b49901ec81fdd17a73616
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
