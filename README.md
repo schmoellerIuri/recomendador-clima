@@ -4,7 +4,7 @@ CityWeather é uma aplicação web que permite aos usuários pesquisar e visuali
 
 ## Versão em produção
 
-[link](https://city-weather-v1.azurewebsites.net)
+[link](https://city-weather-v1.azurewebsites.net) **Obs: Estamos em manutenção no momento**
 
 ## Índice
 - [Funcionalidades](#funcionalidades)
