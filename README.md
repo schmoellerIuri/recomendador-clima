@@ -2,10 +2,6 @@
 
 CityWeather é uma aplicação web que permite aos usuários pesquisar e visualizar previsões meteorológicas de diversas cidades, adicioná-las a um itinerário e gerar um PDF com o roteiro de viagem. Esta aplicação utiliza uma combinação de Vue.js para o frontend e uma API backend para obter dados das cidades.
 
-## Versão em produção
-
-[link](https://city-weather-v1.azurewebsites.net) **Obs: Estamos em manutenção no momento**
-
 ## Índice
 - [Funcionalidades](#funcionalidades)
 - [Arquitetura](#arquitetura)
